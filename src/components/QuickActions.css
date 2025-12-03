@@ -1,0 +1,78 @@
+.quick-actions {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8edf3;
+}
+
+.quick-actions h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.quick-actions__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.quick-actions__button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  color: white;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.quick-actions__button:active {
+  transform: translateY(-1px);
+}
+
+.quick-actions__button--complete {
+  background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.quick-actions__button--reset {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.quick-actions__button--random {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.quick-actions__button--danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.quick-actions__button--danger:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+@media (max-width: 768px) {
+  .quick-actions__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quick-actions__button {
+    width: 100%;
+    max-width: 320px;
+  }
+}

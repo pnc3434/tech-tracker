@@ -1,0 +1,119 @@
+.technology-card {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 5px solid #bdc3c7;
+  cursor: pointer;
+  border: 1px solid #e8edf3;
+}
+
+.technology-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  border-color: #4a6fa5;
+}
+
+.technology-card--completed {
+  border-left-color: #27ae60;
+  background: linear-gradient(to right, #f8fff8, white);
+}
+
+.technology-card--in-progress {
+  border-left-color: #f39c12;
+  background: linear-gradient(to right, #fffbf0, white);
+}
+
+.technology-card--not-started {
+  border-left-color: #e74c3c;
+  background: linear-gradient(to right, #fff5f5, white);
+}
+
+@keyframes statusChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.technology-card.status-changing {
+  animation: statusChange 0.4s ease;
+}
+
+.technology-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.technology-card__title {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3em;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.technology-card__status-icon {
+  font-size: 1.7em;
+  margin-left: 12px;
+  transition: all 0.3s ease;
+}
+
+.technology-card:hover .technology-card__status-icon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+.technology-card--completed .technology-card__status-icon {
+  color: #27ae60;
+}
+
+.technology-card--in-progress .technology-card__status-icon {
+  color: #f39c12;
+}
+
+.technology-card--not-started .technology-card__status-icon {
+  color: #e74c3c;
+}
+
+.technology-card__description {
+  color: #5d6d7e;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+.technology-card__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.technology-card__status {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.technology-card__status--completed {
+  background-color: #d5f4e6;
+  color: #1e8449;
+  border: 1px solid #a3e4c0;
+}
+
+.technology-card__status--in-progress {
+  background-color: #fdebd0;
+  color: #b9770e;
+  border: 1px solid #f8c471;
+}
+
+.technology-card__status--not-started {
+  background-color: #fadbd8;
+  color: #c0392b;
+  border: 1px solid #f1948a;
+}

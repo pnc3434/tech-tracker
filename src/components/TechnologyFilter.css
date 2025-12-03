@@ -1,0 +1,68 @@
+.technology-filter {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8edf3;
+}
+
+.technology-filter h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.technology-filter__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.technology-filter__button {
+  padding: 10px 20px;
+  border: 2px solid #d5dbdb;
+  background: white;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #5d6d7e;
+  letter-spacing: 0.3px;
+}
+
+.technology-filter__button:hover {
+  border-color: #3498db;
+  color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+}
+
+.technology-filter__button--active {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.technology-filter__button--active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .technology-filter__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .technology-filter__button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

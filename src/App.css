@@ -1,38 +1,434 @@
 .App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  min-height: 100vh;
+}
+
+/* Заголовок приветствия */
+.greeting-container {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, #4a6fa5 0%, #3a5f8a 100%);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(74, 111, 165, 0.2);
+}
+
+.greeting-container h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 600;
+}
+
+.greeting-container p {
+  margin: 10px 0 0 0;
+  opacity: 0.9;
+  font-size: 1.1em;
+}
+
+/* Контейнер для технологий */
+.technologies-container {
+  margin: 40px 0;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.technologies-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* Обертка для карточки технологии и заметок */
+.technology-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Стили для отсутствия результатов */
+.no-results {
+  text-align: center;
+  padding: 50px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 2px dashed #cbd5e0;
+  margin: 20px 0;
+}
+
+.no-results p {
+  color: #5d6d7e;
+  font-size: 1.1em;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Информация о localStorage */
+.local-storage-info {
+  background: linear-gradient(135deg, #e8f4fc 0%, #d4e7f7 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px 0;
+  border: 1px solid #b3d7ff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.local-storage-info p {
+  margin: 0;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.local-storage-info strong {
+  color: #2980b9;
+}
+
+/* Список задач */
+.task-list {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 40px;
+}
+
+.task-list h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  margin: 8px 0;
+  background: #f8fafc;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #4a6fa5;
+}
+
+.task-list li:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+
+.task-list li.completed {
+  color: #27ae60;
+  text-decoration: line-through;
+  border-left-color: #27ae60;
+}
+
+.task-list li.pending {
+  color: #f39c12;
+  border-left-color: #f39c12;
+}
+
+/* Адаптивные стили для разных размеров экрана */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+  
+  .technologies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .greeting-container h1 {
+    font-size: 1.8em;
+  }
+  
+  .greeting-container p {
+    font-size: 1em;
+  }
+  
+  .technologies-container h2 {
+    font-size: 1.5em;
+  }
+  
+  .local-storage-info p {
+    flex-direction: column;
+    gap: 5px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 480px) {
+  .greeting-container {
+    padding: 20px 15px;
+  }
+  
+  .technologies-container {
+    padding: 20px 15px;
+  }
+  
+  .task-list {
+    padding: 20px 15px;
+  }
+}
+
+/* Стили для разных размеров экрана (используются WindowSizeTracker) */
+body.screen-xs .technologies-grid {
+  grid-template-columns: 1fr;
+}
+
+body.screen-sm .technologies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+body.screen-md .technologies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+body.screen-lg .technologies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+body.screen-xl .technologies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+/* Дополнительные стили для практики 21 */
+
+/* Стили для компонента WindowSizeTracker */
+.window-tracker {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8edf3;
+}
+
+.window-tracker h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.window-tracker .size-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.window-tracker .size-info p {
+  margin: 0;
+  color: #5d6d7e;
+}
+
+.window-tracker .size-info strong {
+  color: #2c3e50;
+  margin-left: 5px;
+}
+
+/* Стили для компонента TechnologySearch */
+.tech-search {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8edf3;
+}
+
+.tech-search h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.tech-search input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.tech-search input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.tech-search .search-info {
+  color: #5d6d7e;
+  font-size: 0.95em;
+}
+
+.tech-search .search-info strong {
+  color: #2c3e50;
+}
+
+/* Стили для компонента TechnologyNotes */
+.tech-notes {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 15px;
+  border: 1px solid #e2e8f0;
+}
+
+.tech-notes h4 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.tech-notes textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95em;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.tech-notes textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.notes-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.notes-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.notes-save-btn {
+  background: #27ae60;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.notes-save-btn:hover {
+  background: #229954;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.notes-cancel-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.notes-cancel-btn:hover {
+  background: #c0392b;
+}
+
+.notes-edit-btn {
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  border: none;
+  cursor: pointer;
+}
+
+.notes-edit-btn:hover {
+  background: #2980b9;
+}
+
+.notes-content {
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+.notes-empty {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Стили для информации о localStorage */
+.storage-info {
+  background: linear-gradient(135deg, #e8f4fc 0%, #d4e7f7 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px 0;
+  border: 1px solid #b3d7ff;
+  text-align: center;
+}
+
+.storage-info p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1em;
+}
+
+.storage-info strong {
+  color: #2980b9;
+}
+
+/* Адаптивность для новых компонентов */
+@media (max-width: 768px) {
+  .window-tracker .size-info {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .notes-actions {
+    flex-direction: column;
   }
+  
+  .notes-actions button {
+    width: 100%;
+  }
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  min-height: 100vh;
 }
